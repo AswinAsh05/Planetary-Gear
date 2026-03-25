@@ -1,70 +1,111 @@
-# 🔧 Planetary Gear Actuation System (Fusion 360)
+# Planetary Gear Actuation System
 
 ## 📌 Overview
-This project demonstrates the design of a **planetary gear mechanism** using Fusion 360, intended for applications requiring **compact, high-torque, and smooth rotational motion**.
-
-The system follows a **sun–planet–ring configuration**, commonly used in robotics, automotive transmissions, and precision motion systems.
+This project presents the design and analysis of a planetary gear mechanism optimized for high torque output and compact motion transmission, developed using Fusion 360.
 
 ---
 
-## ⚙️ Key Features
+## Design Specifications
 
-- 🌀 **Sun Gear** – Central driving gear  
-- ⚙️ **Planet Gears (3x)** – Even load distribution and smooth motion  
-- 🔵 **Ring Gear (Internal Teeth)** – Compact and efficient design  
-- 🔗 **Carrier Mechanism** – Transfers output rotation  
-
----
-
-## 🎯 Applications
-
-This mechanism is suitable for:
-
-- 🤖 **Robotic arm joints**
-- ⚙️ Precision motion control systems  
-- 🚗 Automotive transmission systems  
-- 🏭 Industrial automation  
+| Parameter | Value |
+|----------|------|
+| Gear Ratio | 1 : 6 |
+| Module | 2 |
+| Pressure Angle | 20° |
+| Ring Gear Teeth (R) | 80 |
+| Sun Gear Teeth (S) | 16 |
+| Planet Gear Teeth (P) | 32 |
+| Number of Planets | 3 |
 
 ---
 
-## 🚀 Design Objectives
+## ⚙️ Gear Calculations
 
-- Achieve **high torque output in a compact structure**  
-- Ensure **smooth and stable rotational motion**  
-- Enable **controlled speed reduction**  
-- Support **real-world motor integration**
+### Sun Gear
+S = R / (Gear Ratio - 1)  
+S = 80 / (6 - 1) = 16  
+
+### Planet Gear
+P = (R - S) / 2  
+P = (80 - 16) / 2 = 32  
+
+### Planet Condition
+(R + S) / Np = (80 + 16) / 3 = 32 ✔ Valid  
 
 ---
 
-## 🧠 Working Principle
+## Kinematic Analysis
 
-In this system:
+### Sun Gear → Planet Gear Rotation
+Sun Rotation:  
+360 + (360 / (80 / 16)) = 432°  
 
-1. The **sun gear** acts as the input  
-2. The **planet gears** rotate around the sun gear  
-3. The **ring gear** provides internal engagement  
-4. The **carrier** transfers the output motion  
+Planet Rotation:  
+360°  
 
-This arrangement allows:
-- Torque amplification  
-- Speed reduction  
+---
+
+### Sun Gear → Carrier Rotation
+Sun Rotation:  
+360°  
+
+Carrier Rotation:  
+360 / 6 = 60°  
+
+---
+
+## Torque Calculation
+
+Assumptions:
+- Input Torque = 1 Nm  
+- Gear Ratio = 6  
+- Efficiency ≈ 90%  
+
+T_out = T_in × Gear Ratio × Efficiency  
+T_out = 1 × 6 × 0.9 = 5.4 Nm  
+
+---
+
+## Speed Reduction
+
+Output Speed = Input Speed / Gear Ratio  
+
+Example:
+Input = 600 RPM  
+Output = 100 RPM  
+
+---
+
+## Working Principle
+
+- Ring gear is fixed  
+- Sun gear acts as input  
+- Planet gears distribute motion  
+- Carrier provides reduced speed output  
+
+Results:
+- Increased torque  
+- Reduced speed  
 - Balanced load distribution  
 
 ---
 
-## 🛠️ Tools Used
+## Applications
 
-- Autodesk Fusion 360 (CAD Design)
+- Robotic arm joints  
+- Industrial automation  
+- Gear reduction systems  
+- Precision actuation  
 
 ---
 
-## 🔄 Future Improvements
+## Future Improvements
 
-- Motor integration for real-world testing  
-- Gear ratio optimization  
-- Load and torque analysis  
+- Motor integration  
+- Load and torque simulation  
+- Material optimization  
 - Bearing and shaft design  
-- Simulation and motion analysis  
+- Real-time testing  
 
 ---
 
@@ -75,12 +116,5 @@ This arrangement allows:
 
 ---
 
-## 🤝 Contributions
-
-Open to suggestions, improvements, and collaboration!
-
----
-
-## 📬 Contact
-
-Feel free to connect or reach out for discussions on design, robotics, and embedded systems.
+## Contact
+Open for collaboration in robotics, embedded systems, and mechanical design.
